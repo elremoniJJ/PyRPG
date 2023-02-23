@@ -961,7 +961,10 @@ def assign_attributes(hero_type):
         myPlayer.hp = random.randint(5, 7)
         myPlayer.mp = random.randint(1, 5)
         myPlayer.sp = random.randint(7, 8)
-
+    elif hero_type == 'panda':
+        myPlayer.hp = random.randint(9, 10)
+        myPlayer.mp = random.randint(9, 10)
+        myPlayer.sp = random.randint(9, 10)
 
 def start_game():
     clear()
@@ -989,6 +992,7 @@ def start_game():
     greeting8 = f"  ->  Spartans can absorb more damage.\n"
     greeting9 = f"  ->  Wizards have more magic to help them answer questions.\n"
     greeting10 = f"  ->  Ninjas are better able to escape questions without getting hurt.\n"
+    greeting10_5 = f"  ->  Pandas are good at everything.\n"
     greeting11 = f"Given these options...\n"
     greeting12 = f"What kind of hero do you want to play?\n"
 
@@ -1037,6 +1041,10 @@ def start_game():
         sys.stdout.write(i)
         sys.stdout.flush()
         time.sleep(0.13)
+    for i in greeting10_5:
+        sys.stdout.write(i)
+        sys.stdout.flush()
+        time.sleep(0.15)
     for i in greeting11:
         sys.stdout.write(i)
         sys.stdout.flush()
@@ -1048,7 +1056,7 @@ def start_game():
 
     hero_type = input("> ")
 
-    while hero_type.lower() not in ['spartan', 'wizard', 'ninja', 'quit']:
+    while hero_type.lower() not in ['spartan', 'wizard', 'ninja', 'quit', 'panda']:
         print("\n~~~~~ Could not understand ~~~~~")
         print("~~~~~ please select spartan, wizard or ninja ~~~~~")
         hero_type = input("> ")
@@ -1070,6 +1078,8 @@ def start_game():
         print(aa.wizard)
     elif myPlayer.hero_type.lower() == 'ninja':
         print(aa.ninja)
+    elif myPlayer.hero_type.lower() == 'panda':
+        print(aa.panda)
 
     for i in game_start_address1:
         sys.stdout.write(i)
